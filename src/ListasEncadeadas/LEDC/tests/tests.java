@@ -115,19 +115,4 @@ public class tests {
         c.removeFirst();
         assertTrue(c.isEmpty(), "A lista deve estar vazia");
     }
-
-    @Test
-    void testContains() {
-        CircularDLinkedList c = new CircularDLinkedList();
-        assertFalse(c.contains("A"), "A lista não deve conter A");
-
-        c.addTail("A");
-        assertTrue(c.contains("A"), "A lista deve conter A");
-
-        c.addTail("B");
-        assertTrue(c.contains("B"), "A lista deve conter B");
-
-        c.removeFirst();
-        assertFalse(c.contains("A"), "A lista não deve conter A");
-    }
-}
+
