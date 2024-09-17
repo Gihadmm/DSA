@@ -62,10 +62,6 @@ public class CircularSLinkedList {
         return size == 0;
     }
 
-    public boolean contains(String element) {
-        return false;
-    }
-
 
     @Override
     public String toString() {

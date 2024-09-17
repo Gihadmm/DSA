@@ -62,7 +62,7 @@ public class tests {
 //        assertThrows(EmptyCircularDLinkedList.class, () -> {
 //            c.removeFirst();
 //        });
-}
+    }
 
     @Test
     void testRemoveLast() {
@@ -115,4 +115,5 @@ public class tests {
         c.removeFirst();
         assertTrue(c.isEmpty(), "A lista deve estar vazia");
     }
-
+}
+

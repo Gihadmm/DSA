@@ -115,9 +115,7 @@ public class CircularDLinkedList{
         return size==0;
     }
 
-    public boolean contains(String a) {
-        return false;
-    }
+
 
     @Override
     public String toString() {
