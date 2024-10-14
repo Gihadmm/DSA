@@ -1,60 +1,76 @@
 package Filas.FilaArray;
 
 import Filas.FilaArray.CircularArray;
-import ListasEncadeadas.LEDC.ListaEncadeadaDuplamenteCircular.Node;
+import Filas.FilaArray.FullQueueException;
+import Filas.FilaArray.EmptyQueueException;
+
+public class ArrayQueue implements Queue {
 
 
-public class ArrayQueue {
-
-    CircularArray fila = new CircularArray(0,1);
-    protected String[] Q = fila.queue;
-    protected int size = 0;
-    protected int N = fila.getMaxArraySize();
-    protected int f = fila.getIndex();
-    protected int r = fila.getNext();
+    CircularArray fila = new CircularArray(0,1,5);
 
 
-    public void Enqueue(String data) {
-        if (size() > N - 1){
+    public void Enqueue(Object element) {
 
-            size =0;
-
+        if (size() == fila.getMaxArraySize()){
+            throw new FullQueueException("Queue is full");
         } else{
-            Q[r] = data;
-            r = (r+1)% N;
+            fila.fila[fila.getNext()] = (String) element;
+
+            fila.setNext((fila.getNext() + 1) % fila.getMaxArraySize());
         }
 
     }
 
-    public String Dequeue() {
-        String temp = null;
+    public Object Dequeue() {
 
-        if (isEmpty()){
+        if (isEmpty()) throw new EmptyQueueException("A fila está vazia");
 
-            size=0;
-
-        }else {
-
-            temp = Q[f];
-
-            Q[f] = null;
-
-            f = (f+1)%N;
-        }
-
+        Object temp = fila.fila[fila.getIndex()];
+        fila.fila[fila.getIndex()] = null;
+        fila.setIndex((fila.getIndex() +1)% fila.getMaxArraySize());
         return temp;
-
-    }
-
-    public boolean isEmpty() {
-
-       return (r == f);
     }
 
     public int size() {
-
-        return (N - f +r);
+        return (fila.getMaxArraySize() - fila.getIndex()+ fila.getNext());
     }
 
 
-}
+    public boolean isEmpty() {
+      return (fila.getIndex() == fila.getNext());
+    }
+
+
+    public Object front() throws EmptyQueueException {
+
+        if (isEmpty()) throw new EmptyQueueException("A fila está vazia");
+
+        return fila.fila[fila.getIndex()];
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder("[");
+        int currentIndex = fila.getIndex();
+        int size = size();
+
+        for (int i = 0; i < size; i++) {
+            result.append(fila.fila[currentIndex]);
+            if (i < size - 1) {
+                result.append(", ");
+            }
+            currentIndex = (currentIndex + 1) % fila.getMaxArraySize();
+        }
+
+        result.append("]");
+        return result.toString();
+    }
+    }
+
+
+
+
+
+

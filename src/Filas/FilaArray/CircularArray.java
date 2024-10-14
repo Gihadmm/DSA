@@ -1,20 +1,22 @@
 package Filas.FilaArray;
 
-import java.util.Arrays;
 
-public class CircularArray {
-    private int maxArraySize = 10;
+import java.lang.reflect.Array;
+
+public class CircularArray  {
+    Object[] fila;
+    private int maxArraySize = 5;
     private int index;
     private int next;
-    String[] queue = new String[maxArraySize];
 
 
-    public CircularArray ( int index, int next) {
+    public CircularArray ( int index, int next, int tamanho) {
         this.index = index;
         this.next = next;
+        this.maxArraySize= tamanho;
+        this.fila = new Object[tamanho];
+
     }
-
-
 
 
 

@@ -3,6 +3,7 @@ package Filas.FilaArray.Test;
 import Filas.FilaArray.ArrayQueue;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import Filas.FilaArray.ArrayQueue;
 
 
 public class ArrayQueueTests {
