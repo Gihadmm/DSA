@@ -1,4 +1,4 @@
-package ListadeNodos;
+package ListadeNodos.exceptions;
 
 @SuppressWarnings("serial")
 

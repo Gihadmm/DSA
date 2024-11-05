@@ -1,5 +1,8 @@
 package ListadeNodos;
 
+import ListadeNodos.exceptions.BoundaryViolationException;
+import ListadeNodos.exceptions.InvalidPositionException;
+
 import java.util.Iterator;
 
 public interface PositionList<E> extends Iterable<E> {

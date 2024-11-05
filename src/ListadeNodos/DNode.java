@@ -1,5 +1,7 @@
 package ListadeNodos;
 
+import ListadeNodos.exceptions.InvalidPositionException;
+
 public class DNode<E> implements Position<E> {
 
     private DNode<E> prev, next;
